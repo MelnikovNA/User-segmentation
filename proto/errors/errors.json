@@ -1,0 +1,58 @@
+{
+  "InvalidPayload": {
+    "code": 400,
+    "message": "invalid payload"
+  },
+  "PasswordsNotEqual": {
+    "code": 400,
+    "message": "passwords not equal"
+  },
+  "InternalServerError": {
+    "code": 500,
+    "message": "internal server error"
+  },
+  "UnknownType": {
+    "code": 400,
+    "message": "unknown type"
+  },
+  "NotFound": {
+    "code": 404,
+    "message": "not found"
+  },
+  "Unauthorized": {
+    "code": 401,
+    "message": "unauthorized"
+  },
+  "UserExists": {
+    "code": 409,
+    "message": "user already exists"
+  },
+  "TokenExpired": {
+    "code": 401,
+    "message": "token expired"
+  },
+  "Forbidden": {
+    "code": 403,
+    "message": "permission denied"
+  },
+  "UserIdNotSpecified": {
+    "code": 400,
+    "message": "user id not specified"
+  },
+  "NotImplemented": {
+    "code": 400,
+    "message": "route not implemented"
+  },
+  "ServiceDisabled": {
+    "code": 400,
+    "message": "service disabled"
+  },
+  "ServiceNotConfigured": {
+    "code": 400,
+    "message": "service not configured"
+  },
+  "UserNotFoundError": {
+    "code": 404,
+    "message": "sendmail service error"
+  }
+}
