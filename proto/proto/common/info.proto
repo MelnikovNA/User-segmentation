@@ -1,17 +1,16 @@
 syntax = "proto3";
 package common;
-option go_package = "github.com/MelnikovNA/User-segmentation/proto/codegen/go/common";
+option go_package = "ithub.com/MelnikovNA/User-segmentation/proto/codegen/go/common";
 
 import "protoc-gen-openapiv2/options/annotations.proto";
-// import "google/api/annotations.proto";
 
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
   info: {
-    title: "noolingo API" 
+    title: "segmentation API" 
     version: "0.0"
-    description: "Methods to interact with noolingo backend"
+    description: "Methods to interact with segmentation backend"
     contact:{
-      url:"https://github.com/MelnikovNA/noolingoproto"
+      url:"https://github.com/MelnikovNA/segmentationproto"
     }
   }
   schemes: [HTTPS,HTTP]
