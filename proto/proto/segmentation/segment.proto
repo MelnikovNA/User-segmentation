@@ -1,0 +1,108 @@
+syntax = "proto3";
+package segmentation;
+option go_package = "github.com/MelnikovNA/User-segmentation/proto/codegen/go/segmentation";
+
+import "protoc-gen-openapiv2/options/annotations.proto";
+import "google/api/annotations.proto";
+import "common/common.proto";
+
+service SegmentService{
+
+    rpc CreateSegment (CreateSegmentRequest) returns (CreateSegmentResponse){
+        option (google.api.http) = {
+            post: "/segments"
+            body: "*"
+        };
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            security: {} // Disable auth
+        };
+    }
+
+    rpc DeletSegment (DeleteSegmentRequest) returns (common.Response){
+        option (google.api.http) = {
+            delete: "/segments/{id}"
+        };
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            security: {} // Disable auth
+        };
+    }
+
+    rpc UpdateSegment (UpdateSegmentRequest) returns (common.Response){
+        option (google.api.http) = {
+            put: "/segments"
+            body: "*"
+        };
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            security: {} // Disable auth
+        };
+    }
+    rpc GetUserSegments (GetUserSegmentsRequest) returns (GetUserSegmentsResponse){
+        option (google.api.http) = {
+            get: "/user/segments/{id}"
+        };
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            security: {} // Disable auth
+        };
+    }
+
+    rpc AssignRandomSegments (AssignRandomSegmentsRequest) returns (common.Response){
+        option (google.api.http) = {
+            put: "/segments/{id}"
+        };
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            security: {} // Disable auth
+        };
+    }
+
+    rpc ListSegments (ListSegmentsRequest) returns (ListSegmentsResponse){
+        option (google.api.http) = {
+            get: "/segments/{id}"
+        };
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            security: {} // Disable auth
+        };
+    }
+}
+
+message CreateSegmentRequest{
+    string name =1;
+}
+
+message CreateSegmentResponse{
+    bool success =1;
+    string error =2;
+    int32 id =3;
+}
+
+message DeleteSegmentRequest{
+    int32 id =1;
+}
+
+message UpdateSegmentRequest{
+    int32 id = 1;
+    string segment_new_name = 2;
+}
+
+message GetUserSegmentsRequest{
+    string id = 1;
+}
+
+message GetUserSegmentsResponse{
+    repeated string segments_ids =1;
+    string error =2;
+}
+
+message AssignRandomSegmentsRequest{
+    int32 id = 1;
+    float percentage = 2;
+}
+
+message ListSegmentsRequest{
+    int32 id =1;
+}
+
+message ListSegmentsResponse{
+    repeated int32 segment_ids =1;
+    optional common.Error error =2; 
+}
+

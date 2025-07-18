@@ -1,6 +1,6 @@
 syntax = "proto3";
 package common;
-option go_package = "github.com/MelnikovNA/noolingoproto/codegen/go/common";
+option go_package = "github.com/MelnikovNA/User-segmentation/proto/codegen/go/common";
 
 import "protoc-gen-openapiv2/options/annotations.proto";
 // import "google/api/annotations.proto";

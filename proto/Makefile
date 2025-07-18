@@ -33,5 +33,15 @@ generate:
 	--experimental_allow_proto3_optional=true \
     --openapiv2_out ${DEST2} \
     --openapiv2_opt use_go_templates=true \
-	./proto/user_segmentation/segment.proto 
+	./proto/segmentation/segment.proto 
 	@echo "segmentation - done"
+
+gen:
+	protoc --proto_path=./proto \
+	-I ./proto -I . -I ./proto/third_party\
+    --descriptor_set_out=myservice.protoset \
+    --include_imports ./proto/segmentation/segment.proto
+
+errors-gen:
+	go run cmd/err-gen/gen.go
+	gofmt -w $(ERRORS_GENERATED)

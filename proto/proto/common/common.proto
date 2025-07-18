@@ -1,6 +1,6 @@
 syntax = "proto3";
 package common;
-option go_package = "";
+option go_package = "github.com/MelnikovNA/User-segmentation/proto/codegen/go/common";
 
 
 message Response{
