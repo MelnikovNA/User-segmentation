@@ -23,10 +23,39 @@ message CreateSegmentResponse{
 }
 
 message DeleteSegmentRequest{
-    string segment = 1;
+    Segment segment = 1;
 }
 
 message DeleteSegmentResponse{
+    bool success =1;
+    string message =2;
+}
+
+message UpdateSegmentRequest{
+    Segment old_segment = 1;
+    Segment new_segment = 2;
+}
+
+message UpdateSegmentResponse{
+    bool success =1;
+    string message =2;
+}
+
+message GetUserSegmentsRequest{
+    string id = 1;
+}
+
+message GetUserSegmentsResponse{
+    bool success =1;
+    string message =2;
+}
+
+message AssignRandomSegmentsRequest{
+    Segment segment = 1;
+    float percentage = 2;
+}
+
+message AssignRandomSegmentsResponse{
     bool success =1;
     string message =2;
 }
