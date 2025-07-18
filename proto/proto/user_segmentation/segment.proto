@@ -1,0 +1,32 @@
+syntax = "proto3";
+package user_segmentation;
+
+service SegmentService{
+    rpc CreateSegment (CreateSegmentRequest) returns (CreateSegmentResponse){}
+    rpc DeletSegment (DeleteSegmentRequest) returns (DeleteSegmentResponse){}
+    rpc UpdateSegment (UpdateSegmentRequest) returns (UpdateSegmentResponse){}
+    rpc GetUserSegments (GetUserSegmentsRequest) returns (GetUserSegmentsResponse){}
+    rpc AssignRandomSegments (AssignRandomSegmentsRequest) returns (AssignRandomSegmentsResponse){}
+}
+
+message Segment{
+    string name =1;
+}
+
+message CreateSegmentRequest{
+    Segment segment =1;
+}
+
+message CreateSegmentResponse{
+    bool success =1;
+    string message =2;
+}
+
+message DeleteSegmentRequest{
+    string segment = 1;
+}
+
+message DeleteSegmentResponse{
+    bool success =1;
+    string message =2;
+}
