@@ -29,5 +29,5 @@ func Run(config string) error {
 	if err != nil {
 		return err
 	}
-
+	return err
 }
