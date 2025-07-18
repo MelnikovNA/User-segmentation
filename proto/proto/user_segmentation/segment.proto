@@ -1,6 +1,10 @@
 syntax = "proto3";
 package user_segmentation;
 
+import "protoc-gen-openapiv2/options/annotations.proto";
+import "google/api/annotations.proto";
+import "common/common.proto";
+
 service SegmentService{
     rpc CreateSegment (CreateSegmentRequest) returns (CreateSegmentResponse){}
     rpc DeletSegment (DeleteSegmentRequest) returns (DeleteSegmentResponse){}
@@ -19,7 +23,8 @@ message CreateSegmentRequest{
 
 message CreateSegmentResponse{
     bool success =1;
-    string message =2;
+    string erro =2;
+    int32 id =3;
 }
 
 message DeleteSegmentRequest{
@@ -34,6 +39,7 @@ message DeleteSegmentResponse{
 message UpdateSegmentRequest{
     Segment old_segment = 1;
     Segment new_segment = 2;
+
 }
 
 message UpdateSegmentResponse{

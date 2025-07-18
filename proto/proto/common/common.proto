@@ -1,0 +1,14 @@
+syntax = "proto3";
+package common;
+option go_package = "";
+
+
+message Response{
+    bool result =1;
+    Error error =2;
+}
+
+message Error{
+    string Error =1;
+    string ErrotText =2;
+}

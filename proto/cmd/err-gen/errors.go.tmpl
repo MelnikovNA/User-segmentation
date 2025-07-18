@@ -1,0 +1,13 @@
+package {{.Package}}
+
+//noolingo gen
+
+var (
+    apiErrors=map[string]*APIError{ {{ range $key, $field := .Names }}
+        "{{ $key }}":{name:"{{$key}}", code:{{ $field.Code }}, message: "{{ $field.Message }}"}, {{ end }}
+    }
+
+{{ range $key, $field := .Names }}
+    // Err{{ $key }} code: {{$field.Code}} message: {{$field.Message}}
+    Err{{ $key }}=apiErrors["{{$key}}"].Error() {{ end }}
+)
