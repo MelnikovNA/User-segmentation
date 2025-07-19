@@ -69,7 +69,16 @@ func (s SegmentationServer) GetUserSegments(ctx context.Context, req *segmentati
 	if err != nil {
 		return nil, err
 	}
-	return &segmentation.GetUserSegmentsResponse{}, nil
+	var result []*segmentation.SegmentObject
+
+	for _, seg := range segmentations {
+		result = append(result, &segmentation.SegmentObject{
+			Id:   seg.ID,
+			Name: seg.Name,
+		})
+	}
+
+	return &segmentation.GetUserSegmentsResponse{Segments: result, Error: "ok"}, nil
 }
 
 func (s SegmentationServer) AssignRandomSegments(ctx context.Context, req *segmentation.AssignRandomSegmentsRequest) (*common.Response, error) {
@@ -78,12 +87,18 @@ func (s SegmentationServer) AssignRandomSegments(ctx context.Context, req *segme
 }
 
 func (s SegmentationServer) ListSegments(ctx context.Context, req *segmentation.ListSegmentsRequest) (*segmentation.ListSegmentsResponse, error) {
-	segment_ids, err := s.service.Segmentation.ListSegments(ctx, req.Id)
+	segmentations, err := s.service.Segmentation.ListSegments(ctx, req.Id)
 	if err != nil {
 		return nil, err
 	}
 
-	return &segmentation.ListSegmentsResponse{
-		SegmentIds: segment_ids,
-	}, nil
+	var result []*segmentation.SegmentObject
+
+	for _, seg := range segmentations {
+		result = append(result, &segmentation.SegmentObject{
+			Id:   seg.ID,
+			Name: seg.Name,
+		})
+	}
+	return &segmentation.ListSegmentsResponse{Segments: result, Error: nil}, nil
 }

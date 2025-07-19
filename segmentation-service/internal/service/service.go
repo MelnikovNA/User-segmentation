@@ -12,7 +12,7 @@ type Segmentation interface {
 	CreateSegment(ctx context.Context, segmentation *domain.Segmentation) (segmentID int32, err error)
 	DeletSegment(ctx context.Context, id int32) (err error)
 	UpdateSegment(ctx context.Context, segmentation *domain.Segmentation) (err error)
-	GetUserSegments(ctx context.Context, user_id string) ([]int32, error)
+	GetUserSegments(ctx context.Context, user_id string) ([]*domain.Segmentation, error)
 	AssignRandomSegments(ctx context.Context, id int32, percentage float32) (err error)
 	ListSegments(ctx context.Context, id int32) (listsegments []*domain.Segmentation, err error)
 }

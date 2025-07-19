@@ -1,7 +1,7 @@
 github.com/BurntSushi/toml v1.2.1 h1:9F2/+DoOYIOksmaJFPw1tGFy1eDnIJXg+UHjuD8lTak=
 github.com/BurntSushi/toml v1.2.1/go.mod h1:CxXYINrC8qIiEnFrOxCa7Jy5BFHlXnUU2pbicEuybxQ=
-github.com/MelnikovNA/User-segmentation/proto v0.0.0-20250719080713-cad04496a241 h1:/qEIm/TNFBiPepIBzPXaReQC8sP5LkUQMAPsRHrH9/A=
-github.com/MelnikovNA/User-segmentation/proto v0.0.0-20250719080713-cad04496a241/go.mod h1:LJBqe++8Vi6yiReexEoDi7XtKejYL2/IyYcB6IkrQJc=
+github.com/MelnikovNA/User-segmentation/proto v0.0.0-20250719135400-d1a142a2dfe7 h1:eXP9GJKSZJFafH8bFP4aOznps65S7IFUbTygUGAwOO4=
+github.com/MelnikovNA/User-segmentation/proto v0.0.0-20250719135400-d1a142a2dfe7/go.mod h1:LJBqe++8Vi6yiReexEoDi7XtKejYL2/IyYcB6IkrQJc=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=

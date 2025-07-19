@@ -46,7 +46,7 @@ func (s *SegmentationService) DeletSegment(ctx context.Context, id int32) (err e
 	return nil
 }
 
-func (s *SegmentationService) GetUserSegments(ctx context.Context, user_id string) ([]int32, error) {
+func (s *SegmentationService) GetUserSegments(ctx context.Context, user_id string) ([]*domain.Segmentation, error) {
 	segments, err := s.repository.GetUserSegments(ctx, user_id)
 	if err != nil {
 		return nil, err
