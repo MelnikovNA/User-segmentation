@@ -2,6 +2,7 @@ package repository
 
 import (
 	"context"
+	"database/sql"
 
 	"github.com/MelnikovNA/User-segmentation/segmentation-service/internal/domain"
 )
@@ -12,4 +13,8 @@ type Repository interface {
 	UpdateSegment(ctx context.Context, segmentation *domain.Segmentation) (err error)
 	GetUserSegments(ctx context.Context, user_id string) ([]string, error)
 	AssignRandomSegments(ctx context.Context, id string, percentage float32) (err error)
+}
+
+func New(db *sql.DB) Repository {
+	return &segmentation{db: db}
 }
