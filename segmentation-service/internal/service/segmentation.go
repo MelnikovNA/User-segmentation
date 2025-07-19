@@ -21,15 +21,15 @@ func NewSegmentationService(p *Params) *SegmentationService {
 		repository: *p.Repository}
 }
 
-func (s *SegmentationService) CreateSegment(ctx context.Context, segmentation *domain.Segmentation) (segmentID string, err error) {
+func (s *SegmentationService) CreateSegment(ctx context.Context, segmentation *domain.Segmentation) (segmentID int32, err error) {
 	panic("unimplemented")
 }
 
-func (s *SegmentationService) AssignRandomSegments(ctx context.Context, id string, percentage float32) (err error) {
+func (s *SegmentationService) AssignRandomSegments(ctx context.Context, id int32, percentage float32) (err error) {
 	panic("unimplemented")
 }
 
-func (s *SegmentationService) DeletSegment(ctx context.Context, id string) (err error) {
+func (s *SegmentationService) DeletSegment(ctx context.Context, id int32) (err error) {
 	panic("unimplemented")
 }
 
@@ -38,5 +38,9 @@ func (s *SegmentationService) GetUserSegments(ctx context.Context, user_id strin
 }
 
 func (s *SegmentationService) UpdateSegment(ctx context.Context, segmentation *domain.Segmentation) (err error) {
+	panic("unimplemented")
+}
+
+func (s *SegmentationService) ListSegments(ctx context.Context, id int32) (listsegments []int32, err error) {
 	panic("unimplemented")
 }

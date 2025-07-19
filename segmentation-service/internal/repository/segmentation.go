@@ -11,6 +11,11 @@ type segmentation struct {
 	db *sql.DB
 }
 
+// ListSegments implements Repository.
+func (s *segmentation) ListSegments(ctx context.Context, id int32) (listsegments []int32, err error) {
+	panic("unimplemented")
+}
+
 // AssignRandomSegments implements Repository.
 func (s *segmentation) AssignRandomSegments(ctx context.Context, id string, percentage float32) (err error) {
 	panic("unimplemented")

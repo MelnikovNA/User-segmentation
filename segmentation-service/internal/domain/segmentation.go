@@ -1,6 +1,6 @@
 package domain
 
 type Segmentation struct {
-	ID   string
+	ID   int32
 	Name string
 }
