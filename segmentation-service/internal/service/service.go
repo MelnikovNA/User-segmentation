@@ -27,5 +27,7 @@ type Services struct {
 }
 
 func New(p *Params) *Services {
-	return &Services{Segmentation: NewSegmentationService(p)}
+	return &Services{
+		Segmentation: NewSegmentationService(p),
+	}
 }
