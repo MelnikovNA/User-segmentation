@@ -69,10 +69,7 @@ func (s SegmentationServer) GetUserSegments(ctx context.Context, req *segmentati
 	if err != nil {
 		return nil, err
 	}
-	return &segmentation.GetUserSegmentsResponse{
-		SegmentsIds: segmentations,
-		Error:       "nil",
-	}, nil
+	return &segmentation.GetUserSegmentsResponse{}, nil
 }
 
 func (s SegmentationServer) AssignRandomSegments(ctx context.Context, req *segmentation.AssignRandomSegmentsRequest) (*common.Response, error) {

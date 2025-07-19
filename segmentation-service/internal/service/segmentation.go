@@ -46,7 +46,7 @@ func (s *SegmentationService) DeletSegment(ctx context.Context, id int32) (err e
 	return nil
 }
 
-func (s *SegmentationService) GetUserSegments(ctx context.Context, user_id string) ([]string, error) {
+func (s *SegmentationService) GetUserSegments(ctx context.Context, user_id string) ([]int32, error) {
 	segments, err := s.repository.GetUserSegments(ctx, user_id)
 	if err != nil {
 		return nil, err
@@ -62,7 +62,7 @@ func (s *SegmentationService) UpdateSegment(ctx context.Context, segmentation *d
 	return nil
 }
 
-func (s *SegmentationService) ListSegments(ctx context.Context, id int32) (listsegments []int32, err error) {
+func (s *SegmentationService) ListSegments(ctx context.Context, id int32) (listsegments []*domain.Segmentation, err error) {
 	listsegments, err = s.repository.ListSegments(ctx, id)
 	if err != nil {
 		return nil, err

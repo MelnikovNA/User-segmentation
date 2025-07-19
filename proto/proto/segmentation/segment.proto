@@ -64,6 +64,11 @@ service SegmentService{
     }
 }
 
+message SegmentObject{
+    int32 id =1;
+    string name =2;
+}
+
 message CreateSegmentRequest{
     string name =1;
 }
@@ -88,7 +93,7 @@ message GetUserSegmentsRequest{
 }
 
 message GetUserSegmentsResponse{
-    repeated string segments_ids =1;
+    repeated SegmentObject segments =1;
     string error =2;
 }
 
@@ -102,7 +107,7 @@ message ListSegmentsRequest{
 }
 
 message ListSegmentsResponse{
-    repeated int32 segment_ids =1;
+    repeated SegmentObject segments =1;
     optional common.Error error =2; 
 }
 

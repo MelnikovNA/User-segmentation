@@ -24,6 +24,58 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type SegmentObject struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SegmentObject) Reset() {
+	*x = SegmentObject{}
+	mi := &file_segmentation_segment_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SegmentObject) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SegmentObject) ProtoMessage() {}
+
+func (x *SegmentObject) ProtoReflect() protoreflect.Message {
+	mi := &file_segmentation_segment_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SegmentObject.ProtoReflect.Descriptor instead.
+func (*SegmentObject) Descriptor() ([]byte, []int) {
+	return file_segmentation_segment_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *SegmentObject) GetId() int32 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *SegmentObject) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
 type CreateSegmentRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
@@ -33,7 +85,7 @@ type CreateSegmentRequest struct {
 
 func (x *CreateSegmentRequest) Reset() {
 	*x = CreateSegmentRequest{}
-	mi := &file_segmentation_segment_proto_msgTypes[0]
+	mi := &file_segmentation_segment_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -45,7 +97,7 @@ func (x *CreateSegmentRequest) String() string {
 func (*CreateSegmentRequest) ProtoMessage() {}
 
 func (x *CreateSegmentRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_segmentation_segment_proto_msgTypes[0]
+	mi := &file_segmentation_segment_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -58,7 +110,7 @@ func (x *CreateSegmentRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateSegmentRequest.ProtoReflect.Descriptor instead.
 func (*CreateSegmentRequest) Descriptor() ([]byte, []int) {
-	return file_segmentation_segment_proto_rawDescGZIP(), []int{0}
+	return file_segmentation_segment_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *CreateSegmentRequest) GetName() string {
@@ -79,7 +131,7 @@ type CreateSegmentResponse struct {
 
 func (x *CreateSegmentResponse) Reset() {
 	*x = CreateSegmentResponse{}
-	mi := &file_segmentation_segment_proto_msgTypes[1]
+	mi := &file_segmentation_segment_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -91,7 +143,7 @@ func (x *CreateSegmentResponse) String() string {
 func (*CreateSegmentResponse) ProtoMessage() {}
 
 func (x *CreateSegmentResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_segmentation_segment_proto_msgTypes[1]
+	mi := &file_segmentation_segment_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -104,7 +156,7 @@ func (x *CreateSegmentResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateSegmentResponse.ProtoReflect.Descriptor instead.
 func (*CreateSegmentResponse) Descriptor() ([]byte, []int) {
-	return file_segmentation_segment_proto_rawDescGZIP(), []int{1}
+	return file_segmentation_segment_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *CreateSegmentResponse) GetSuccess() bool {
@@ -137,7 +189,7 @@ type DeleteSegmentRequest struct {
 
 func (x *DeleteSegmentRequest) Reset() {
 	*x = DeleteSegmentRequest{}
-	mi := &file_segmentation_segment_proto_msgTypes[2]
+	mi := &file_segmentation_segment_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -149,7 +201,7 @@ func (x *DeleteSegmentRequest) String() string {
 func (*DeleteSegmentRequest) ProtoMessage() {}
 
 func (x *DeleteSegmentRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_segmentation_segment_proto_msgTypes[2]
+	mi := &file_segmentation_segment_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -162,7 +214,7 @@ func (x *DeleteSegmentRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteSegmentRequest.ProtoReflect.Descriptor instead.
 func (*DeleteSegmentRequest) Descriptor() ([]byte, []int) {
-	return file_segmentation_segment_proto_rawDescGZIP(), []int{2}
+	return file_segmentation_segment_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *DeleteSegmentRequest) GetId() int32 {
@@ -182,7 +234,7 @@ type UpdateSegmentRequest struct {
 
 func (x *UpdateSegmentRequest) Reset() {
 	*x = UpdateSegmentRequest{}
-	mi := &file_segmentation_segment_proto_msgTypes[3]
+	mi := &file_segmentation_segment_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -194,7 +246,7 @@ func (x *UpdateSegmentRequest) String() string {
 func (*UpdateSegmentRequest) ProtoMessage() {}
 
 func (x *UpdateSegmentRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_segmentation_segment_proto_msgTypes[3]
+	mi := &file_segmentation_segment_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -207,7 +259,7 @@ func (x *UpdateSegmentRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateSegmentRequest.ProtoReflect.Descriptor instead.
 func (*UpdateSegmentRequest) Descriptor() ([]byte, []int) {
-	return file_segmentation_segment_proto_rawDescGZIP(), []int{3}
+	return file_segmentation_segment_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *UpdateSegmentRequest) GetId() int32 {
@@ -233,7 +285,7 @@ type GetUserSegmentsRequest struct {
 
 func (x *GetUserSegmentsRequest) Reset() {
 	*x = GetUserSegmentsRequest{}
-	mi := &file_segmentation_segment_proto_msgTypes[4]
+	mi := &file_segmentation_segment_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -245,7 +297,7 @@ func (x *GetUserSegmentsRequest) String() string {
 func (*GetUserSegmentsRequest) ProtoMessage() {}
 
 func (x *GetUserSegmentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_segmentation_segment_proto_msgTypes[4]
+	mi := &file_segmentation_segment_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -258,7 +310,7 @@ func (x *GetUserSegmentsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserSegmentsRequest.ProtoReflect.Descriptor instead.
 func (*GetUserSegmentsRequest) Descriptor() ([]byte, []int) {
-	return file_segmentation_segment_proto_rawDescGZIP(), []int{4}
+	return file_segmentation_segment_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *GetUserSegmentsRequest) GetId() string {
@@ -270,7 +322,7 @@ func (x *GetUserSegmentsRequest) GetId() string {
 
 type GetUserSegmentsResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	SegmentsIds   []string               `protobuf:"bytes,1,rep,name=segments_ids,json=segmentsIds,proto3" json:"segments_ids,omitempty"`
+	Segments      []*SegmentObject       `protobuf:"bytes,1,rep,name=segments,proto3" json:"segments,omitempty"`
 	Error         string                 `protobuf:"bytes,2,opt,name=error,proto3" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -278,7 +330,7 @@ type GetUserSegmentsResponse struct {
 
 func (x *GetUserSegmentsResponse) Reset() {
 	*x = GetUserSegmentsResponse{}
-	mi := &file_segmentation_segment_proto_msgTypes[5]
+	mi := &file_segmentation_segment_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -290,7 +342,7 @@ func (x *GetUserSegmentsResponse) String() string {
 func (*GetUserSegmentsResponse) ProtoMessage() {}
 
 func (x *GetUserSegmentsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_segmentation_segment_proto_msgTypes[5]
+	mi := &file_segmentation_segment_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -303,12 +355,12 @@ func (x *GetUserSegmentsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserSegmentsResponse.ProtoReflect.Descriptor instead.
 func (*GetUserSegmentsResponse) Descriptor() ([]byte, []int) {
-	return file_segmentation_segment_proto_rawDescGZIP(), []int{5}
+	return file_segmentation_segment_proto_rawDescGZIP(), []int{6}
 }
 
-func (x *GetUserSegmentsResponse) GetSegmentsIds() []string {
+func (x *GetUserSegmentsResponse) GetSegments() []*SegmentObject {
 	if x != nil {
-		return x.SegmentsIds
+		return x.Segments
 	}
 	return nil
 }
@@ -330,7 +382,7 @@ type AssignRandomSegmentsRequest struct {
 
 func (x *AssignRandomSegmentsRequest) Reset() {
 	*x = AssignRandomSegmentsRequest{}
-	mi := &file_segmentation_segment_proto_msgTypes[6]
+	mi := &file_segmentation_segment_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -342,7 +394,7 @@ func (x *AssignRandomSegmentsRequest) String() string {
 func (*AssignRandomSegmentsRequest) ProtoMessage() {}
 
 func (x *AssignRandomSegmentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_segmentation_segment_proto_msgTypes[6]
+	mi := &file_segmentation_segment_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -355,7 +407,7 @@ func (x *AssignRandomSegmentsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AssignRandomSegmentsRequest.ProtoReflect.Descriptor instead.
 func (*AssignRandomSegmentsRequest) Descriptor() ([]byte, []int) {
-	return file_segmentation_segment_proto_rawDescGZIP(), []int{6}
+	return file_segmentation_segment_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *AssignRandomSegmentsRequest) GetId() int32 {
@@ -381,7 +433,7 @@ type ListSegmentsRequest struct {
 
 func (x *ListSegmentsRequest) Reset() {
 	*x = ListSegmentsRequest{}
-	mi := &file_segmentation_segment_proto_msgTypes[7]
+	mi := &file_segmentation_segment_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -393,7 +445,7 @@ func (x *ListSegmentsRequest) String() string {
 func (*ListSegmentsRequest) ProtoMessage() {}
 
 func (x *ListSegmentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_segmentation_segment_proto_msgTypes[7]
+	mi := &file_segmentation_segment_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -406,7 +458,7 @@ func (x *ListSegmentsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListSegmentsRequest.ProtoReflect.Descriptor instead.
 func (*ListSegmentsRequest) Descriptor() ([]byte, []int) {
-	return file_segmentation_segment_proto_rawDescGZIP(), []int{7}
+	return file_segmentation_segment_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *ListSegmentsRequest) GetId() int32 {
@@ -418,7 +470,7 @@ func (x *ListSegmentsRequest) GetId() int32 {
 
 type ListSegmentsResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	SegmentIds    []int32                `protobuf:"varint,1,rep,packed,name=segment_ids,json=segmentIds,proto3" json:"segment_ids,omitempty"`
+	Segments      []*SegmentObject       `protobuf:"bytes,1,rep,name=segments,proto3" json:"segments,omitempty"`
 	Error         *common.Error          `protobuf:"bytes,2,opt,name=error,proto3,oneof" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -426,7 +478,7 @@ type ListSegmentsResponse struct {
 
 func (x *ListSegmentsResponse) Reset() {
 	*x = ListSegmentsResponse{}
-	mi := &file_segmentation_segment_proto_msgTypes[8]
+	mi := &file_segmentation_segment_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -438,7 +490,7 @@ func (x *ListSegmentsResponse) String() string {
 func (*ListSegmentsResponse) ProtoMessage() {}
 
 func (x *ListSegmentsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_segmentation_segment_proto_msgTypes[8]
+	mi := &file_segmentation_segment_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -451,12 +503,12 @@ func (x *ListSegmentsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListSegmentsResponse.ProtoReflect.Descriptor instead.
 func (*ListSegmentsResponse) Descriptor() ([]byte, []int) {
-	return file_segmentation_segment_proto_rawDescGZIP(), []int{8}
+	return file_segmentation_segment_proto_rawDescGZIP(), []int{9}
 }
 
-func (x *ListSegmentsResponse) GetSegmentIds() []int32 {
+func (x *ListSegmentsResponse) GetSegments() []*SegmentObject {
 	if x != nil {
-		return x.SegmentIds
+		return x.Segments
 	}
 	return nil
 }
@@ -472,7 +524,10 @@ var File_segmentation_segment_proto protoreflect.FileDescriptor
 
 const file_segmentation_segment_proto_rawDesc = "" +
 	"\n" +
-	"\x1asegmentation/segment.proto\x12\fsegmentation\x1a.protoc-gen-openapiv2/options/annotations.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x13common/common.proto\"*\n" +
+	"\x1asegmentation/segment.proto\x12\fsegmentation\x1a.protoc-gen-openapiv2/options/annotations.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x13common/common.proto\"3\n" +
+	"\rSegmentObject\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\"*\n" +
 	"\x14CreateSegmentRequest\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\"W\n" +
 	"\x15CreateSegmentResponse\x12\x18\n" +
@@ -485,9 +540,9 @@ const file_segmentation_segment_proto_rawDesc = "" +
 	"\x02id\x18\x01 \x01(\x05R\x02id\x12(\n" +
 	"\x10segment_new_name\x18\x02 \x01(\tR\x0esegmentNewName\"(\n" +
 	"\x16GetUserSegmentsRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\"R\n" +
-	"\x17GetUserSegmentsResponse\x12!\n" +
-	"\fsegments_ids\x18\x01 \x03(\tR\vsegmentsIds\x12\x14\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\"h\n" +
+	"\x17GetUserSegmentsResponse\x127\n" +
+	"\bsegments\x18\x01 \x03(\v2\x1b.segmentation.SegmentObjectR\bsegments\x12\x14\n" +
 	"\x05error\x18\x02 \x01(\tR\x05error\"M\n" +
 	"\x1bAssignRandomSegmentsRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x1e\n" +
@@ -495,10 +550,9 @@ const file_segmentation_segment_proto_rawDesc = "" +
 	"percentage\x18\x02 \x01(\x02R\n" +
 	"percentage\"%\n" +
 	"\x13ListSegmentsRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x05R\x02id\"k\n" +
-	"\x14ListSegmentsResponse\x12\x1f\n" +
-	"\vsegment_ids\x18\x01 \x03(\x05R\n" +
-	"segmentIds\x12(\n" +
+	"\x02id\x18\x01 \x01(\x05R\x02id\"\x83\x01\n" +
+	"\x14ListSegmentsResponse\x127\n" +
+	"\bsegments\x18\x01 \x03(\v2\x1b.segmentation.SegmentObjectR\bsegments\x12(\n" +
 	"\x05error\x18\x02 \x01(\v2\r.common.ErrorH\x00R\x05error\x88\x01\x01B\b\n" +
 	"\x06_error2\xb3\x05\n" +
 	"\x0eSegmentService\x12s\n" +
@@ -521,39 +575,42 @@ func file_segmentation_segment_proto_rawDescGZIP() []byte {
 	return file_segmentation_segment_proto_rawDescData
 }
 
-var file_segmentation_segment_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
+var file_segmentation_segment_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
 var file_segmentation_segment_proto_goTypes = []any{
-	(*CreateSegmentRequest)(nil),        // 0: segmentation.CreateSegmentRequest
-	(*CreateSegmentResponse)(nil),       // 1: segmentation.CreateSegmentResponse
-	(*DeleteSegmentRequest)(nil),        // 2: segmentation.DeleteSegmentRequest
-	(*UpdateSegmentRequest)(nil),        // 3: segmentation.UpdateSegmentRequest
-	(*GetUserSegmentsRequest)(nil),      // 4: segmentation.GetUserSegmentsRequest
-	(*GetUserSegmentsResponse)(nil),     // 5: segmentation.GetUserSegmentsResponse
-	(*AssignRandomSegmentsRequest)(nil), // 6: segmentation.AssignRandomSegmentsRequest
-	(*ListSegmentsRequest)(nil),         // 7: segmentation.ListSegmentsRequest
-	(*ListSegmentsResponse)(nil),        // 8: segmentation.ListSegmentsResponse
-	(*common.Error)(nil),                // 9: common.Error
-	(*common.Response)(nil),             // 10: common.Response
+	(*SegmentObject)(nil),               // 0: segmentation.SegmentObject
+	(*CreateSegmentRequest)(nil),        // 1: segmentation.CreateSegmentRequest
+	(*CreateSegmentResponse)(nil),       // 2: segmentation.CreateSegmentResponse
+	(*DeleteSegmentRequest)(nil),        // 3: segmentation.DeleteSegmentRequest
+	(*UpdateSegmentRequest)(nil),        // 4: segmentation.UpdateSegmentRequest
+	(*GetUserSegmentsRequest)(nil),      // 5: segmentation.GetUserSegmentsRequest
+	(*GetUserSegmentsResponse)(nil),     // 6: segmentation.GetUserSegmentsResponse
+	(*AssignRandomSegmentsRequest)(nil), // 7: segmentation.AssignRandomSegmentsRequest
+	(*ListSegmentsRequest)(nil),         // 8: segmentation.ListSegmentsRequest
+	(*ListSegmentsResponse)(nil),        // 9: segmentation.ListSegmentsResponse
+	(*common.Error)(nil),                // 10: common.Error
+	(*common.Response)(nil),             // 11: common.Response
 }
 var file_segmentation_segment_proto_depIdxs = []int32{
-	9,  // 0: segmentation.ListSegmentsResponse.error:type_name -> common.Error
-	0,  // 1: segmentation.SegmentService.CreateSegment:input_type -> segmentation.CreateSegmentRequest
-	2,  // 2: segmentation.SegmentService.DeletSegment:input_type -> segmentation.DeleteSegmentRequest
-	3,  // 3: segmentation.SegmentService.UpdateSegment:input_type -> segmentation.UpdateSegmentRequest
-	4,  // 4: segmentation.SegmentService.GetUserSegments:input_type -> segmentation.GetUserSegmentsRequest
-	6,  // 5: segmentation.SegmentService.AssignRandomSegments:input_type -> segmentation.AssignRandomSegmentsRequest
-	7,  // 6: segmentation.SegmentService.ListSegments:input_type -> segmentation.ListSegmentsRequest
-	1,  // 7: segmentation.SegmentService.CreateSegment:output_type -> segmentation.CreateSegmentResponse
-	10, // 8: segmentation.SegmentService.DeletSegment:output_type -> common.Response
-	10, // 9: segmentation.SegmentService.UpdateSegment:output_type -> common.Response
-	5,  // 10: segmentation.SegmentService.GetUserSegments:output_type -> segmentation.GetUserSegmentsResponse
-	10, // 11: segmentation.SegmentService.AssignRandomSegments:output_type -> common.Response
-	8,  // 12: segmentation.SegmentService.ListSegments:output_type -> segmentation.ListSegmentsResponse
-	7,  // [7:13] is the sub-list for method output_type
-	1,  // [1:7] is the sub-list for method input_type
-	1,  // [1:1] is the sub-list for extension type_name
-	1,  // [1:1] is the sub-list for extension extendee
-	0,  // [0:1] is the sub-list for field type_name
+	0,  // 0: segmentation.GetUserSegmentsResponse.segments:type_name -> segmentation.SegmentObject
+	0,  // 1: segmentation.ListSegmentsResponse.segments:type_name -> segmentation.SegmentObject
+	10, // 2: segmentation.ListSegmentsResponse.error:type_name -> common.Error
+	1,  // 3: segmentation.SegmentService.CreateSegment:input_type -> segmentation.CreateSegmentRequest
+	3,  // 4: segmentation.SegmentService.DeletSegment:input_type -> segmentation.DeleteSegmentRequest
+	4,  // 5: segmentation.SegmentService.UpdateSegment:input_type -> segmentation.UpdateSegmentRequest
+	5,  // 6: segmentation.SegmentService.GetUserSegments:input_type -> segmentation.GetUserSegmentsRequest
+	7,  // 7: segmentation.SegmentService.AssignRandomSegments:input_type -> segmentation.AssignRandomSegmentsRequest
+	8,  // 8: segmentation.SegmentService.ListSegments:input_type -> segmentation.ListSegmentsRequest
+	2,  // 9: segmentation.SegmentService.CreateSegment:output_type -> segmentation.CreateSegmentResponse
+	11, // 10: segmentation.SegmentService.DeletSegment:output_type -> common.Response
+	11, // 11: segmentation.SegmentService.UpdateSegment:output_type -> common.Response
+	6,  // 12: segmentation.SegmentService.GetUserSegments:output_type -> segmentation.GetUserSegmentsResponse
+	11, // 13: segmentation.SegmentService.AssignRandomSegments:output_type -> common.Response
+	9,  // 14: segmentation.SegmentService.ListSegments:output_type -> segmentation.ListSegmentsResponse
+	9,  // [9:15] is the sub-list for method output_type
+	3,  // [3:9] is the sub-list for method input_type
+	3,  // [3:3] is the sub-list for extension type_name
+	3,  // [3:3] is the sub-list for extension extendee
+	0,  // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_segmentation_segment_proto_init() }
@@ -561,14 +618,14 @@ func file_segmentation_segment_proto_init() {
 	if File_segmentation_segment_proto != nil {
 		return
 	}
-	file_segmentation_segment_proto_msgTypes[8].OneofWrappers = []any{}
+	file_segmentation_segment_proto_msgTypes[9].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_segmentation_segment_proto_rawDesc), len(file_segmentation_segment_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   9,
+			NumMessages:   10,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

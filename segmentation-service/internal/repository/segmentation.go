@@ -12,8 +12,8 @@ type segmentation struct {
 }
 
 // ListSegments implements Repository.
-func (s *segmentation) ListSegments(ctx context.Context, id int32) (listsegments []int32, err error) {
-	panic("unimplemented")
+func (s *segmentation) ListSegments(ctx context.Context, id int32) (listsegments []*domain.Segmentation, err error) {
+	stms := `SELECT id, deck_name, deck_descr from deck_descr where user_id=?`
 }
 
 // AssignRandomSegments implements Repository.
@@ -24,12 +24,30 @@ func (s *segmentation) AssignRandomSegments(ctx context.Context, id int32, perce
 // CreateSegment implements Repository.
 func (s *segmentation) CreateSegment(ctx context.Context, segmentation *domain.Segmentation) (segmentID int32, err error) {
 	ins, err := s.db.PrepareContext(ctx,
-		"insert into segment")
+		"insert into segment (name) values(?)")
+	if err != nil {
+		return -1, err
+	}
+	tmp, err := ins.ExecContext(ctx, segmentation.ID)
+	if err != nil {
+		return -1, err
+	}
+	res, err := tmp.LastInsertId()
+	if err != nil {
+		return -1, err
+	}
+	return int32(res), nil
 }
 
 // DeletSegment implements Repository.
 func (s *segmentation) DeletSegment(ctx context.Context, id int32) (err error) {
-	panic("unimplemented")
+	ins, err := s.db.PrepareContext(ctx, "delete from user where id=?")
+	if err != nil {
+		return err
+	}
+
+	_, err = ins.ExecContext(ctx, id)
+	return err
 }
 
 // GetUserSegments implements Repository.

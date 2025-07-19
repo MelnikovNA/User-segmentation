@@ -13,7 +13,7 @@ type Repository interface {
 	UpdateSegment(ctx context.Context, segmentation *domain.Segmentation) (err error)
 	GetUserSegments(ctx context.Context, user_id string) ([]int32, error)
 	AssignRandomSegments(ctx context.Context, id int32, percentage float32) (err error)
-	ListSegments(ctx context.Context, id int32) (listsegments []int32, err error)
+	ListSegments(ctx context.Context, id int32) (listsegments []*domain.Segmentation, err error)
 }
 
 func New(db *sql.DB) Repository {

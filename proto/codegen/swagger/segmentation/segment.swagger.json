@@ -288,10 +288,11 @@
     "segmentationGetUserSegmentsResponse": {
       "type": "object",
       "properties": {
-        "segmentsIds": {
+        "segments": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "object",
+            "$ref": "#/definitions/segmentationSegmentObject"
           }
         },
         "error": {
@@ -302,15 +303,27 @@
     "segmentationListSegmentsResponse": {
       "type": "object",
       "properties": {
-        "segmentIds": {
+        "segments": {
           "type": "array",
           "items": {
-            "type": "integer",
-            "format": "int32"
+            "type": "object",
+            "$ref": "#/definitions/segmentationSegmentObject"
           }
         },
         "error": {
           "$ref": "#/definitions/commonError"
+        }
+      }
+    },
+    "segmentationSegmentObject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
         }
       }
     },
