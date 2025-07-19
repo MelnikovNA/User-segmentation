@@ -5,7 +5,6 @@ import (
 	"net"
 
 	"github.com/MelnikovNA/User-segmentation/proto/codegen/go/segmentation"
-	"github.com/MelnikovNA/User-segmentation/tree/main/proto/codegen/go/segmentation"
 
 	"github.com/MelnikovNA/User-segmentation/segmentation-service/internal/service"
 	"github.com/sirupsen/logrus"
