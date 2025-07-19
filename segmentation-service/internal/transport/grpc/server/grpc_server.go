@@ -6,11 +6,11 @@ import (
 )
 
 type Server struct {
-	host   string
-	port   string
-	server *grpc.Server
-	//service *service.Services
-	logger *logrus.Logger
+	host    string
+	port    string
+	server  *grpc.Server
+	service *service.Services
+	logger  *logrus.Logger
 }
 
 //func New(host string, port string, serv)
