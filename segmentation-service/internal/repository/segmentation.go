@@ -17,22 +17,23 @@ func (s *segmentation) ListSegments(ctx context.Context, id int32) (listsegments
 }
 
 // AssignRandomSegments implements Repository.
-func (s *segmentation) AssignRandomSegments(ctx context.Context, id string, percentage float32) (err error) {
+func (s *segmentation) AssignRandomSegments(ctx context.Context, id int32, percentage float32) (err error) {
 	panic("unimplemented")
 }
 
 // CreateSegment implements Repository.
-func (s *segmentation) CreateSegment(ctx context.Context, segmentation *domain.Segmentation) (segmentID string, err error) {
-	panic("unimplemented")
+func (s *segmentation) CreateSegment(ctx context.Context, segmentation *domain.Segmentation) (segmentID int32, err error) {
+	ins, err := s.db.PrepareContext(ctx,
+		"insert into segment")
 }
 
 // DeletSegment implements Repository.
-func (s *segmentation) DeletSegment(ctx context.Context, id string) (err error) {
+func (s *segmentation) DeletSegment(ctx context.Context, id int32) (err error) {
 	panic("unimplemented")
 }
 
 // GetUserSegments implements Repository.
-func (s *segmentation) GetUserSegments(ctx context.Context, user_id string) ([]string, error) {
+func (s *segmentation) GetUserSegments(ctx context.Context, user_id string) ([]int32, error) {
 	panic("unimplemented")
 }
 

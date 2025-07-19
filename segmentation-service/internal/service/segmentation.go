@@ -22,25 +22,50 @@ func NewSegmentationService(p *Params) *SegmentationService {
 }
 
 func (s *SegmentationService) CreateSegment(ctx context.Context, segmentation *domain.Segmentation) (segmentID int32, err error) {
-	panic("unimplemented")
+	seg_id, err := s.repository.CreateSegment(ctx, segmentation)
+	if err != nil {
+		return -1, err
+	}
+	return seg_id, err
+
 }
 
 func (s *SegmentationService) AssignRandomSegments(ctx context.Context, id int32, percentage float32) (err error) {
-	panic("unimplemented")
+	err = s.repository.AssignRandomSegments(ctx, id, percentage)
+	if err != nil {
+		return err
+	}
+	return nil
 }
 
 func (s *SegmentationService) DeletSegment(ctx context.Context, id int32) (err error) {
-	panic("unimplemented")
+	err = s.repository.DeletSegment(ctx, id)
+	if err != nil {
+		return err
+	}
+	return nil
 }
 
 func (s *SegmentationService) GetUserSegments(ctx context.Context, user_id string) ([]string, error) {
-	panic("unimplemented")
+	segments, err := s.repository.GetUserSegments(ctx, user_id)
+	if err != nil {
+		return nil, err
+	}
+	return segments, err
 }
 
 func (s *SegmentationService) UpdateSegment(ctx context.Context, segmentation *domain.Segmentation) (err error) {
-	panic("unimplemented")
+	err = s.repository.UpdateSegment(ctx, segmentation)
+	if err != nil {
+		return err
+	}
+	return nil
 }
 
 func (s *SegmentationService) ListSegments(ctx context.Context, id int32) (listsegments []int32, err error) {
-	panic("unimplemented")
+	listsegments, err = s.repository.ListSegments(ctx, id)
+	if err != nil {
+		return nil, err
+	}
+	return listsegments, nil
 }

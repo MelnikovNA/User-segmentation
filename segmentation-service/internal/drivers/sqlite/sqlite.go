@@ -8,7 +8,7 @@ import (
 )
 
 func New(cfg *domain.Sqlite) (*sql.DB, error) {
-	dsn := strings.TrimPrefix(cfg.DSN, "mysql://")
+	dsn := strings.TrimPrefix(cfg.DSN, "sqlite3://")
 
 	db, err := sql.Open("sqlite3", dsn)
 	if err != nil {
