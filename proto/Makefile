@@ -23,7 +23,7 @@ generate:
 	./proto/common/common.proto
 	@echo "common - done"
 
-#user
+#segmentation
 	@protoc -I ./proto -I . -I ./proto/third_party --go_out ${DEST} \
 	--go_opt paths=source_relative --go-grpc_out ${DEST} \
 	--go-grpc_opt paths=source_relative \

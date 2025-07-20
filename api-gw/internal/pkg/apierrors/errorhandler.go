@@ -19,7 +19,7 @@ import (
 
 func ErrorHandler(_ context.Context, _ *runtime.ServeMux, _ runtime.Marshaler, w http.ResponseWriter, req *http.Request, inErr error) {
 
-	apiError := apierrors.FromError(inErr)
+	apiError := apierrors.FromError
 	ce := &common.Response{}
 
 	js, err := json.Marshal(ce)
