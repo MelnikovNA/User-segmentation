@@ -3,6 +3,10 @@ package gateway
 import (
 	"context"
 	"net/http"
+
+	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
+	"github.com/noolingo/proto/codegen/go/apierrors"
+	"github.com/sirupsen/logrus"
 )
 
 type Configs struct {
@@ -22,4 +26,8 @@ type Gateway struct {
 	port    string
 }
 
-func NewGateway(ctx context.Context, cfg *Configs, lg *logrus)
+func NewGateway(ctx context.Context, cfg *Configs, lg *logrus.Logger) (*Gateway, error) {
+	mux := runtime.NewServeMux(
+		runtime.WithErrorHandler(apierrors)
+	)
+}
