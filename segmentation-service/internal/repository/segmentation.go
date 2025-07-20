@@ -5,8 +5,7 @@ import (
 	"database/sql"
 	"errors"
 	"math"
-	"math/rand"
-	"time"
+	"math/rand/v2"
 
 	"github.com/MelnikovNA/User-segmentation/segmentation-service/internal/domain"
 )
@@ -15,26 +14,15 @@ type segmentation struct {
 	db *sql.DB
 }
 
-func GetRandomUniqueIDs(totalUsers int, percentage float32) []int {
-	numIDsToReturn := int(math.Floor(float64(581 * (percentage / 100))))
+func GetRandomUniqueIDs(totalUsers []int32, percentage float32) []int32 {
 
-	if totalUsers <= 0 {
-		return []int{}
-	}
+	numIDsToReturn := int(math.Floor(float64(float32(len(totalUsers)) * (percentage / 100))))
 
-	rand.Seed(time.Now().UnixNano())
+	rand.Shuffle(len(totalUsers), func(i, j int) {
+		totalUsers[i], totalUsers[j] = totalUsers[j], totalUsers[i]
+	})
 
-	allIDs := make([]int, totalUsers)
-	for i := 0; i < totalUsers; i++ {
-		allIDs[i] = i + 1
-	}
-
-	for i := len(allIDs) - 1; i > 0; i-- {
-		j := rand.Intn(i + 1)
-		allIDs[i], allIDs[j] = allIDs[j], allIDs[i]
-	}
-
-	return allIDs[:numIDsToReturn]
+	return totalUsers[:numIDsToReturn]
 }
 
 // ListSegments implements Repository.
@@ -85,11 +73,40 @@ func (s *segmentation) ListSegments(ctx context.Context, id int32) (listsegments
 
 // AssignRandomSegments implements Repository.
 func (s *segmentation) AssignRandomSegments(ctx context.Context, id int32, percentage float32) (err error) {
-	ids_of_user := GetRandomUniqueIDs(581, percentage)
-	for _, id := range ids_of_user {
-		ins, err := s.db.PrepareContext(ctx,
-		"insert into users_to_segment(user_id,email,password) values (?,?,?)"))
+	stmt := `SELECT id FROM user`
+	rows, err := s.db.QueryContext(ctx, stmt)
+	if err != nil {
+		if errors.Is(err, sql.ErrNoRows) {
+			return err
+		}
+		return err
 	}
+	defer rows.Close()
+	var users []int32
+	for rows.Next() {
+
+		var user int32
+		err = rows.Scan(user)
+		if err != nil {
+			return err
+		}
+		users = append(users, user)
+	}
+
+	ids_of_user := GetRandomUniqueIDs(users, percentage)
+	for _, user_id := range ids_of_user {
+		ins, err := s.db.PrepareContext(ctx,
+			"insert into users_to_segment(user_id, segment_id) values (?,?,?)")
+		if err != nil {
+			return err
+		}
+
+		_, err = ins.ExecContext(ctx, user_id, id)
+		if err != nil {
+			return err
+		}
+	}
+	return err
 
 }
 
@@ -100,7 +117,7 @@ func (s *segmentation) CreateSegment(ctx context.Context, segmentation *domain.S
 	if err != nil {
 		return -1, err
 	}
-	tmp, err := ins.ExecContext(ctx, segmentation.ID)
+	tmp, err := ins.ExecContext(ctx, segmentation.Name)
 	if err != nil {
 		return -1, err
 	}

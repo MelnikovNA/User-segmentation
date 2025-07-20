@@ -7,6 +7,7 @@ toolchain go1.23.11
 require (
 	github.com/MelnikovNA/User-segmentation/proto v0.0.0-20250719135400-d1a142a2dfe7
 	github.com/ilyakaznacheev/cleanenv v1.5.0
+	github.com/mattn/go-sqlite3 v1.14.28
 	github.com/sirupsen/logrus v1.9.3
 	golang.org/x/sync v0.15.0
 	google.golang.org/grpc v1.73.0
