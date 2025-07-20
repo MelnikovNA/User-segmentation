@@ -11,253 +11,28 @@
   ],
   "swagger": "2.0",
   "info": {
-    "description": "Methods to interact with noolingo backend",
-    "title": "noolingo API",
+    "description": "Methods to interact with segmentation backend",
+    "title": "segmentation API",
     "contact": {
-      "url": "https://github.com/noolingo/proto"
+      "url": "https://github.com/MelnikovNA/segmentationproto"
     },
     "version": "0.0"
   },
   "paths": {
-    "/auth/refresh": {
-      "post": {
-        "security": [],
-        "tags": [
-          "User"
-        ],
-        "operationId": "User_Refresh",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/noolingoRefreshRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/noolingoRefreshReply"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        }
-      }
-    },
-    "/auth/sign-in": {
-      "post": {
-        "security": [],
-        "tags": [
-          "User"
-        ],
-        "operationId": "User_SignIn",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/noolingoSignInRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/noolingoSignInReply"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        }
-      }
-    },
-    "/auth/sign-up": {
-      "post": {
-        "security": [],
-        "tags": [
-          "User"
-        ],
-        "operationId": "User_SignUp",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/noolingoSignUpRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/commonResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        }
-      }
-    },
-    "/card/words/eng/{eng}": {
-      "get": {
-        "tags": [
-          "Cards"
-        ],
-        "operationId": "Cards_SearchByEng",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "eng",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/noolingoSearchReply"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        }
-      }
-    },
-    "/card/words/rus/{rus}": {
-      "get": {
-        "tags": [
-          "Cards"
-        ],
-        "operationId": "Cards_SearchByRus",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "rus",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/noolingoSearchReply"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        }
-      }
-    },
-    "/card/words/{id}": {
-      "get": {
-        "tags": [
-          "Cards"
-        ],
-        "operationId": "Cards_SearchByID",
-        "parameters": [
-          {
-            "minItems": 1,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "csv",
-            "name": "id",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/noolingoSearchReply"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        }
-      }
-    },
-    "/decks": {
-      "post": {
-        "tags": [
-          "Deck"
-        ],
-        "operationId": "Deck_Create",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/noolingoCreateRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/noolingoCreateResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        }
-      }
-    },
-    "/decks/cards": {
+    "/segments": {
       "put": {
+        "security": [],
         "tags": [
-          "Deck"
+          "SegmentService"
         ],
-        "operationId": "Deck_CardAdd",
+        "operationId": "SegmentService_UpdateSegment",
         "parameters": [
           {
             "name": "body",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/noolingoCardAddRequest"
+              "$ref": "#/definitions/segmentationUpdateSegmentRequest"
             }
           }
         ],
@@ -275,27 +50,28 @@
             }
           }
         }
-      }
-    },
-    "/decks/get/{deckId}": {
-      "get": {
+      },
+      "post": {
+        "security": [],
         "tags": [
-          "Deck"
+          "SegmentService"
         ],
-        "operationId": "Deck_Get",
+        "operationId": "SegmentService_CreateSegment",
         "parameters": [
           {
-            "type": "string",
-            "name": "deckId",
-            "in": "path",
-            "required": true
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/segmentationCreateSegmentRequest"
+            }
           }
         ],
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/noolingoGetResponse"
+              "$ref": "#/definitions/segmentationCreateSegmentResponse"
             }
           },
           "default": {
@@ -307,45 +83,18 @@
         }
       }
     },
-    "/decks/list": {
+    "/segments/{id}": {
       "get": {
+        "security": [],
         "tags": [
-          "Deck"
+          "SegmentService"
         ],
-        "operationId": "Deck_List",
+        "operationId": "SegmentService_ListSegments",
         "parameters": [
           {
-            "type": "string",
+            "type": "integer",
+            "format": "int32",
             "name": "id",
-            "in": "query"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/noolingoListResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        }
-      }
-    },
-    "/decks/{deckId}": {
-      "delete": {
-        "tags": [
-          "Deck"
-        ],
-        "operationId": "Deck_Delete",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "deckId",
             "in": "path",
             "required": true
           }
@@ -354,65 +103,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/commonResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        }
-      }
-    },
-    "/decks/{deckId}/cards/{cardId}": {
-      "delete": {
-        "tags": [
-          "Deck"
-        ],
-        "operationId": "Deck_CardDelete",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "deckId",
-            "in": "path",
-            "required": true
-          },
-          {
-            "type": "string",
-            "name": "cardId",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/commonResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        }
-      }
-    },
-    "/statistic": {
-      "get": {
-        "tags": [
-          "Statistic"
-        ],
-        "operationId": "Statistic_StatisticList",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/noolingoStatisticResponse"
+              "$ref": "#/definitions/segmentationListSegmentsResponse"
             }
           },
           "default": {
@@ -424,18 +115,24 @@
         }
       },
       "put": {
+        "security": [],
         "tags": [
-          "Statistic"
+          "SegmentService"
         ],
-        "operationId": "Statistic_StatisticUpdate",
+        "operationId": "SegmentService_AssignRandomSegments",
         "parameters": [
           {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/noolingoStatisticUpdataRequest"
-            }
+            "type": "integer",
+            "format": "int32",
+            "name": "id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "number",
+            "format": "float",
+            "name": "percentage",
+            "in": "query"
           }
         ],
         "responses": {
@@ -452,18 +149,18 @@
             }
           }
         }
-      }
-    },
-    "/statistic/{deckId}": {
-      "get": {
+      },
+      "delete": {
+        "security": [],
         "tags": [
-          "Statistic"
+          "SegmentService"
         ],
-        "operationId": "Statistic_StatisticbyDeckID",
+        "operationId": "SegmentService_DeletSegment",
         "parameters": [
           {
-            "type": "string",
-            "name": "deckId",
+            "type": "integer",
+            "format": "int32",
+            "name": "id",
             "in": "path",
             "required": true
           }
@@ -472,60 +169,6 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/noolingoStatisticResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        }
-      }
-    },
-    "/user/info": {
-      "get": {
-        "tags": [
-          "User"
-        ],
-        "operationId": "User_GetUser",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/noolingoGetUserResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        }
-      }
-    },
-    "/user/password": {
-      "post": {
-        "tags": [
-          "User"
-        ],
-        "operationId": "User_UpdatePassword",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/noolingoUpdatePasswordRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
               "$ref": "#/definitions/commonResponse"
             }
           },
@@ -538,12 +181,13 @@
         }
       }
     },
-    "/user/{id}": {
-      "delete": {
+    "/user/segments/{id}": {
+      "get": {
+        "security": [],
         "tags": [
-          "User"
+          "SegmentService"
         ],
-        "operationId": "User_DeleteUser",
+        "operationId": "SegmentService_GetUserSegments",
         "parameters": [
           {
             "type": "string",
@@ -556,7 +200,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/commonResponse"
+              "$ref": "#/definitions/segmentationGetUserSegmentsResponse"
             }
           },
           "default": {
@@ -576,7 +220,7 @@
         "Error": {
           "type": "string"
         },
-        "ErrorText": {
+        "ErrotText": {
           "type": "string"
         }
       }
@@ -589,253 +233,6 @@
         },
         "result": {
           "type": "boolean"
-        }
-      }
-    },
-    "noolingoCardAddRequest": {
-      "type": "object",
-      "properties": {
-        "cardId": {
-          "type": "string"
-        },
-        "deckId": {
-          "type": "string"
-        }
-      }
-    },
-    "noolingoCardObject": {
-      "type": "object",
-      "properties": {
-        "eng": {
-          "type": "string"
-        },
-        "example": {
-          "type": "string"
-        },
-        "id": {
-          "type": "string"
-        },
-        "rus": {
-          "type": "string"
-        },
-        "transcription": {
-          "type": "string"
-        }
-      }
-    },
-    "noolingoCreateRequest": {
-      "type": "object",
-      "properties": {
-        "description": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        }
-      }
-    },
-    "noolingoCreateResponse": {
-      "type": "object",
-      "properties": {
-        "deckID": {
-          "type": "string"
-        },
-        "response": {
-          "$ref": "#/definitions/commonError"
-        }
-      }
-    },
-    "noolingoDeckObject": {
-      "type": "object",
-      "properties": {
-        "description": {
-          "type": "string"
-        },
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        }
-      }
-    },
-    "noolingoGetResponse": {
-      "type": "object",
-      "properties": {
-        "cardIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "response": {
-          "$ref": "#/definitions/commonError"
-        }
-      }
-    },
-    "noolingoGetUserResponse": {
-      "type": "object",
-      "properties": {
-        "result": {
-          "$ref": "#/definitions/noolingoUserObject"
-        }
-      }
-    },
-    "noolingoListResponse": {
-      "type": "object",
-      "properties": {
-        "decks": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "$ref": "#/definitions/noolingoDeckObject"
-          }
-        },
-        "response": {
-          "$ref": "#/definitions/commonError"
-        }
-      }
-    },
-    "noolingoRefreshReply": {
-      "type": "object",
-      "properties": {
-        "accessToken": {
-          "type": "string"
-        },
-        "refreshToken": {
-          "type": "string"
-        }
-      }
-    },
-    "noolingoRefreshRequest": {
-      "type": "object",
-      "properties": {
-        "refreshToken": {
-          "type": "string"
-        }
-      }
-    },
-    "noolingoSearchReply": {
-      "type": "object",
-      "properties": {
-        "cards": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "$ref": "#/definitions/noolingoCardObject"
-          }
-        },
-        "response": {
-          "$ref": "#/definitions/commonResponse"
-        }
-      }
-    },
-    "noolingoSignInReply": {
-      "type": "object",
-      "properties": {
-        "accessToken": {
-          "type": "string"
-        },
-        "refreshToken": {
-          "type": "string"
-        }
-      }
-    },
-    "noolingoSignInRequest": {
-      "type": "object",
-      "properties": {
-        "email": {
-          "type": "string"
-        },
-        "password": {
-          "type": "string"
-        }
-      }
-    },
-    "noolingoSignUpRequest": {
-      "type": "object",
-      "properties": {
-        "email": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "password": {
-          "type": "string"
-        },
-        "repeatedPassword": {
-          "type": "string"
-        }
-      }
-    },
-    "noolingoStatisticObject": {
-      "type": "object",
-      "properties": {
-        "deckId": {
-          "type": "string"
-        },
-        "duration": {
-          "type": "string"
-        },
-        "wordsCount": {
-          "type": "string"
-        },
-        "wordsLearned": {
-          "type": "string"
-        }
-      }
-    },
-    "noolingoStatisticResponse": {
-      "type": "object",
-      "properties": {
-        "response": {
-          "$ref": "#/definitions/commonError"
-        },
-        "statistic": {
-          "$ref": "#/definitions/noolingoStatisticObject"
-        }
-      }
-    },
-    "noolingoStatisticUpdataRequest": {
-      "type": "object",
-      "properties": {
-        "statistic": {
-          "$ref": "#/definitions/noolingoStatisticObject"
-        }
-      }
-    },
-    "noolingoUpdatePasswordRequest": {
-      "type": "object",
-      "properties": {
-        "newPassword": {
-          "type": "string"
-        },
-        "oldPassword": {
-          "type": "string"
-        },
-        "repeatedNewPassword": {
-          "type": "string"
-        }
-      }
-    },
-    "noolingoUserObject": {
-      "type": "object",
-      "properties": {
-        "createdAt": {
-          "description": "google.protobuf.Timestamp deleted_at = 6;",
-          "type": "string",
-          "format": "date-time",
-          "title": "bool is_deleted = 4;"
-        },
-        "email": {
-          "type": "string"
-        },
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
         }
       }
     },
@@ -866,6 +263,83 @@
           "type": "string"
         }
       }
+    },
+    "segmentationCreateSegmentRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "segmentationCreateSegmentResponse": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "segmentationGetUserSegmentsResponse": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "segments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/segmentationSegmentObject"
+          }
+        }
+      }
+    },
+    "segmentationListSegmentsResponse": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "$ref": "#/definitions/commonError"
+        },
+        "segments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/segmentationSegmentObject"
+          }
+        }
+      }
+    },
+    "segmentationSegmentObject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "segmentationUpdateSegmentRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "segmentNewName": {
+          "type": "string"
+        }
+      }
     }
   },
   "securityDefinitions": {
@@ -883,16 +357,7 @@
   ],
   "tags": [
     {
-      "name": "Cards"
-    },
-    {
-      "name": "Deck"
-    },
-    {
-      "name": "Statistic"
-    },
-    {
-      "name": "User"
+      "name": "SegmentService"
     }
   ]
 }
