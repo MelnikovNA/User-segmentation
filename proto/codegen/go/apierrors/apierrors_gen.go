@@ -1,6 +1,6 @@
 package apierrors
 
-//noolingo gen
+//segment gen
 
 var (
 	apiErrors = map[string]*APIError{
