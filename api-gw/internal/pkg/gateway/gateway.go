@@ -5,7 +5,6 @@ import (
 	"net/http"
 
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
-	"github.com/noolingo/proto/codegen/go/apierrors"
 	"github.com/sirupsen/logrus"
 )
 

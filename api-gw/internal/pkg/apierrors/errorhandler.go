@@ -5,9 +5,9 @@ import (
 	"encoding/json"
 	"net/http"
 
+	"github.com/MelnikovNA/User-segmentation/proto/codegen/go/apierrors"
+	"github.com/MelnikovNA/User-segmentation/proto/codegen/go/common"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
-	"github.com/noolingo/proto/codegen/go/apierrors"
-	"github.com/noolingo/proto/codegen/go/common"
 	"github.com/sirupsen/logrus"
 )
 
@@ -17,17 +17,10 @@ import (
 //	Error string `json:"error"`
 //}
 
-func ErrorHandler(_ context.Context, _ *runtime.ServeMux, _ runtime.Marshaler,
-	w http.ResponseWriter, req *http.Request, inErr error) {
+func ErrorHandler(_ context.Context, _ *runtime.ServeMux, _ runtime.Marshaler, w http.ResponseWriter, req *http.Request, inErr error) {
 
 	apiError := apierrors.FromError(inErr)
-	ce := &common.Response{
-		Result: false,
-		Error: &common.Error{
-			Error:     apiError.Name(),
-			ErrorText: apiError.Message(),
-		},
-	}
+	ce := &common.Response{}
 
 	js, err := json.Marshal(ce)
 	if err != nil {
