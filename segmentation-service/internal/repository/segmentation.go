@@ -50,7 +50,7 @@ func (s *segmentation) ListSegments(ctx context.Context, id int32) (listsegments
 		return segments, err
 	} else {
 		stmt := `SELECT id, name FROM segment where id=?`
-		rows, err := s.db.QueryContext(ctx, stmt)
+		rows, err := s.db.QueryContext(ctx, stmt, id)
 		if err != nil {
 			if errors.Is(err, sql.ErrNoRows) {
 				return nil, nil
@@ -83,20 +83,20 @@ func (s *segmentation) AssignRandomSegments(ctx context.Context, id int32, perce
 	}
 	defer rows.Close()
 	var users []int32
+
 	for rows.Next() {
 
 		var user int32
-		err = rows.Scan(user)
+		err = rows.Scan(&user)
 		if err != nil {
 			return err
 		}
 		users = append(users, user)
 	}
-
 	ids_of_user := GetRandomUniqueIDs(users, percentage)
 	for _, user_id := range ids_of_user {
 		ins, err := s.db.PrepareContext(ctx,
-			"insert into users_to_segment(user_id, segment_id) values (?,?,?)")
+			"insert into users_to_segment(user_id, segment_id) values (?,?)")
 		if err != nil {
 			return err
 		}
@@ -130,7 +130,7 @@ func (s *segmentation) CreateSegment(ctx context.Context, segmentation *domain.S
 
 // DeletSegment implements Repository.
 func (s *segmentation) DeletSegment(ctx context.Context, id int32) (err error) {
-	ins, err := s.db.PrepareContext(ctx, "delete from user where id=?")
+	ins, err := s.db.PrepareContext(ctx, "delete from segment where id=?")
 	if err != nil {
 		return err
 	}
@@ -143,7 +143,7 @@ func (s *segmentation) DeletSegment(ctx context.Context, id int32) (err error) {
 func (s *segmentation) GetUserSegments(ctx context.Context, user_id string) ([]*domain.Segmentation, error) {
 	var segments []*domain.Segmentation
 	var ids []int32
-	stmt := `SELECT id, deck_name,  from deck_descr where user_id=?`
+	stmt := `SELECT segment_id from users_to_segment where user_id=?`
 	rows, err := s.db.QueryContext(ctx, stmt, user_id)
 	if err != nil {
 		if errors.Is(err, sql.ErrNoRows) {
