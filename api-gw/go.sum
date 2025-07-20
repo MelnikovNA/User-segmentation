@@ -1,5 +1,5 @@
-github.com/MelnikovNA/User-segmentation/proto v0.0.0-20250720101623-1e533bcc9bb0 h1:9PyJXsU2xS+RiWQbPF+x/qECjXtirFAxjYb5PJQD/kY=
-github.com/MelnikovNA/User-segmentation/proto v0.0.0-20250720101623-1e533bcc9bb0/go.mod h1:LJBqe++8Vi6yiReexEoDi7XtKejYL2/IyYcB6IkrQJc=
+github.com/MelnikovNA/User-segmentation/proto v0.0.0-20250720113834-a4dad6886f46 h1:Z/nNLdsx0vOKh7/6djKubFTBp82z83cY9f8aIgFCSME=
+github.com/MelnikovNA/User-segmentation/proto v0.0.0-20250720113834-a4dad6886f46/go.mod h1:LJBqe++8Vi6yiReexEoDi7XtKejYL2/IyYcB6IkrQJc=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
@@ -17,6 +17,8 @@ github.com/grpc-ecosystem/grpc-gateway/v2 v2.27.1 h1:X5VWvz21y3gzm9Nw/kaUeku/1+u
 github.com/grpc-ecosystem/grpc-gateway/v2 v2.27.1/go.mod h1:Zanoh4+gvIgluNqcfMVTJueD4wSS5hT7zTt4Mrutd90=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
+github.com/rs/cors v1.11.1 h1:eU3gRzXLRK57F5rKMGMZURNdIG4EoAmX8k94r9wXWHA=
+github.com/rs/cors v1.11.1/go.mod h1:XyqrcTp5zjWr1wsJ8PIRZssZ8b/WMcMf71DJnit4EMU=
 github.com/sirupsen/logrus v1.9.3 h1:dueUQJ1C2q9oE3F7wvmSGAaVtTmUizReu6fjN8uqzbQ=
 github.com/sirupsen/logrus v1.9.3/go.mod h1:naHLuLoDiP4jHNo9R0sCBMtWGeIprob74mVsIT4qYEQ=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=

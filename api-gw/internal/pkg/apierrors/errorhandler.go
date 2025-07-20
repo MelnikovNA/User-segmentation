@@ -19,8 +19,14 @@ import (
 
 func ErrorHandler(_ context.Context, _ *runtime.ServeMux, _ runtime.Marshaler, w http.ResponseWriter, req *http.Request, inErr error) {
 
-	apiError := apierrors.FromError
-	ce := &common.Response{}
+	apiError := apierrors.FromError(inErr)
+	ce := &common.Response{
+		Result: false,
+		Error: &common.Error{
+			Error:     apiError.Name(),
+			ErrotText: apiError.Message(),
+		},
+	}
 
 	js, err := json.Marshal(ce)
 	if err != nil {

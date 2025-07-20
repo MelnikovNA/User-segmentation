@@ -94,12 +94,14 @@ func (s *segmentation) AssignRandomSegments(ctx context.Context, id int32, perce
 		users = append(users, user)
 	}
 	ids_of_user := GetRandomUniqueIDs(users, percentage)
+
+	ins, err := s.db.PrepareContext(ctx,
+		"insert into users_to_segment(user_id, segment_id) values (?,?)")
+	if err != nil {
+		return err
+	}
+
 	for _, user_id := range ids_of_user {
-		ins, err := s.db.PrepareContext(ctx,
-			"insert into users_to_segment(user_id, segment_id) values (?,?)")
-		if err != nil {
-			return err
-		}
 
 		_, err = ins.ExecContext(ctx, user_id, id)
 		if err != nil {
